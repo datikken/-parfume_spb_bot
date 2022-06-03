@@ -1,7 +1,5 @@
-# импортируем ответ пользователю
 from settings.message import MESSAGES
 from settings import config, utility
-# импортируем класс родитель
 from handlers.handler import Handler
 
 
@@ -9,7 +7,6 @@ class HandlerAllText(Handler):
     """
     Класс обрабатывает входящие текстовые сообщения от нажатия на кнопоки
     """
-
     def __init__(self, bot):
         super().__init__(bot)
         # шаг в заказе
@@ -70,7 +67,6 @@ class HandlerAllText(Handler):
         count = self.BD.select_all_product_id()
         # получаем количество в каждой позиции товара в заказе
         quantity = self.BD.select_order_quantity(count[self.step])
-
         # отправляем ответ пользователю
         self.send_message_order(count[self.step], quantity, message)
 
